@@ -1,0 +1,10 @@
+[package]
+name = "docker-version"
+version = "0.1.0"
+authors = ["cmarshall10450 <cmarshall10450@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+clap = {version = "*", features = ["yaml"]}
+semver = "*"
+regex = "1.1.6"

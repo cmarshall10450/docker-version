@@ -1,0 +1,43 @@
+name: docker-version
+version: "0.1"
+about: Command-line tool for managing docker image versions
+author: Chris Marshall <cmarshall10450@gmail.com>
+
+args:
+    
+subcommands:
+    # The name of this subcommand will be 'subcmd' which can be accessed in your
+    # Rust code later
+    - bump:
+        about: Bump the version of a docker image following the semver standard
+        version: "0.1"
+        author: Chris Marshall <cmarshall10450@gmail.com>
+        args:
+            - commit_message:
+                help: commit message with the bump instruction
+                index: 1
+                takes_value: true
+            - filename:
+                help: file containing the current version
+                short: f
+                long: filename
+                takes_value: true
+                conflicts_with:
+                  - input
+            - input:
+                help: cuse this if you want to pass in a string to pass, rather than read it from a file. Cannot be used with --filename.
+                short: i
+                long: input
+                takes_value: true
+                conflicts_with:
+                  - filename
+            - extract:
+                help: this will just find the version and return it, does not modify anything. Safe operation.
+                short: e
+                long: extract
+                takes_value: false
+            - format:
+                help: either M for major, M-m for major-minor or M-m-p
+                long: format
+                takes_value: true
+            
